@@ -1,0 +1,442 @@
+<style>
+  /* Container for the whole layout */
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px; /* Adds padding around the container */
+    background-color: #f4f4f4; /* Light background color for the container */
+  }
+  
+  /* Card Styling */
+  .card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    flex: 1; /* Allows the card to grow and shrink equally */
+    min-width: 0; /* Prevents the card from shrinking too small */
+  }
+  
+  /* Card Header Styling */
+  .card h3 {
+    margin-top: 0;
+    border-bottom: 2px solid #007bff; /* Adds a bottom border for emphasis */
+    padding-bottom: 10px;
+    color: #333; /* Darker color for better readability */
+  }
+  
+  /* Container for pressure and flow sections */
+  .pressure-flow-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  /* Ensure cards fit in grid layout and have the same size */
+  .pressure-card {
+    flex: 1 1 calc(50% - 20px); /* Two items per row */
+    max-width: calc(50% - 20px); /* Two items per row */
+    box-sizing: border-box;
+  }
+  
+  /* Equal height for all cards */
+  .pressure-flow-container > .pressure-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+
+  
+  /* Card-item header styling */
+  .card-item h4 {
+    margin-top: 0;
+    font-size: 1.1em; /* Slightly larger font size for subheaders */
+    color: #007bff; /* Consistent color for headers */
+  }
+  
+  /* Paragraph styling */
+  p {
+    font-size: 1em; /* Standard font size */
+    margin: 0; /* Remove default margin */
+    color: #333; /* Dark color for better readability */
+  }
+  
+  /* Ensure responsiveness */
+  @media (max-width: 768px) {
+    .pressure-card {
+      flex: 1 1 100%; /* Stack items vertically on small screens */
+      max-width: 100%; /* Full width on small screens */
+    }
+  }
+  
+  /* Toggle button container */
+  .toggle-button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Space between buttons */
+    margin-top: 5px;
+  }
+  
+  /* Toggle button styling */
+  .toggle-button {
+    background-color: #fff;
+    border: 1px solid #007bff;
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #007bff;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, transform 0.3s;
+    text-transform: uppercase;
+  }
+  
+  /* Active state for buttons */
+  .toggle-button.active {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  /* Hover effect for buttons */
+  .toggle-button:hover {
+    background-color: #0056b3;
+    color: #fff;
+    transform: translateY(-2px);
+  }
+  
+  /* Disabled state */
+  .toggle-button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+  }
+  
+  /* Container for the pressure table */
+  .pressure-table-container {
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+  }
+  
+  /* Table styling */
+  .pressure-table {
+    width: 100%; /* Full width */
+    border-collapse: collapse; /* Remove spacing between cells */
+    background-color: #fff; /* White background for contrast */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+  }
+  
+  /* Table header styling */
+  .pressure-table thead {
+    background-color: #007bff; /* Primary color for header background */
+    color: #fff; /* White text color */
+  }
+  
+  .pressure-table th, .pressure-table td {
+    padding: 12px; /* Spacing inside cells */
+    text-align: left; /* Left-align text */
+    border-bottom: 1px solid #ddd; /* Light border for rows */
+  }
+  
+  .pressure-table th {
+    font-weight: bold; /* Bold text for headers */
+  }
+  
+  /* Table row hover effect */
+  .pressure-table tbody tr:hover {
+    background-color: #f1f1f1; /* Light background on hover */
+  }
+  
+  /* Table cells for difference column */
+  .pressure-table td:last-child {
+    font-weight: bold; /* Bold text for the difference column */
+  }
+  
+
+
+  /* Container for items aligned in a row */
+.row-container {
+  display: flex;
+  flex-wrap: nowrap; /* Prevent wrapping */
+  gap: 12px; /* Space between items in the row */
+  margin: 0 -10px; /* Adjust margin to ensure full width usage */
+}
+
+/* Ensure cards fit in grid layout and have the same size */
+.pressure-card1 {
+  flex: 1 1 calc(33.333% - 20px); /* Three items per row */
+  max-width: calc(33.333% - 20px); /* Three items per row */
+  box-sizing: border-box;
+  margin: 0 10px; /* Add margin to ensure spacing between cards */
+}
+
+/* Ensure card-item elements have uniform height and fit in single line */
+.card-item {
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 0; /* Remove bottom margin to fit items in a row */
+  border: 1px solid #ddd; /* Added border */
+  background-color: #f9f9f9; /* Slightly different background for items */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Uniform shadow */
+  flex: 1; /* Allow items to grow */
+  text-align: left; /* Ensure text aligns to the left */
+  white-space: nowrap; /* Prevent text wrapping */
+  overflow: hidden; /* Hide overflow text */
+  text-overflow: ellipsis; /* Add ellipsis for overflow text */
+}
+
+
+  
+  </style>
+  
+<div class="toggle-button-container">
+  <button 
+    class="toggle-button" 
+    [ngClass]="{'active': showP11}"
+    (click)="toggleData(true)">
+    P11 Data
+  </button>
+  <button 
+    class="toggle-button" 
+    [ngClass]="{'active': !showP11}"
+    (click)="toggleData(false)">
+    P29 Data
+  </button>
+</div>
+
+<!-- Container for the whole layout -->
+<div class="container">
+  <!-- Conditionally display P11 Section based on `showP11` flag -->
+  <div *ngIf="showP11" class="pressure-flow-container">
+    <!-- Container for P11 Pressure Data -->
+    <div class="card">
+      <h3>P11 - Pressure</h3>
+      <hr>
+      <div class="pressure-flow-container">
+        <!-- Container for items to be aligned in one row -->
+          <div class="pressure-card" (click)="pump1()">
+            <div class="card-item">
+              <h4>Pump 1 Pressure</h4>
+              <p>Pressure:<b> {{ p11Data['pump_1'] || 'nill' }} bar</b></p>
+            </div>
+          </div>
+          <div class="pressure-card" (click)="sidebore()">
+            <div class="card-item">
+              <h4>Side Cylinder Bore</h4>
+              <p>Pressure:<b> {{ p11Data['side_bore'] || 'nill' }} bar</b></p>
+            </div>
+          </div>
+        <!-- Remaining items -->
+        <div class="pressure-card" (click)="pump2()">
+          <div class="card-item">
+            <h4>Pump 2 Pressure</h4>
+            <p>Pressure:<b> {{ p11Data['pump_2'] || 'nill' }} bar</b></p>
+          </div>
+        </div>
+        <div class="pressure-card" (click)="siderod()">
+          <div class="card-item">
+            <h4>Side Cylinder Rod</h4>
+            <p>Pressure:<b> {{ p11Data['side_rod'] || 'nill' }} bar</b></p>
+          </div>
+        </div>
+        <div class="pressure-card" (click)="pump3()">
+          <div class="card-item">
+            <h4>Pump 3 Pressure</h4>
+            <p>Pressure:<b> {{ p11Data['pump_3'] || 'nill' }} bar</b></p>
+          </div>
+        </div>
+        <div class="pressure-card" (click)="shearrod()">
+          <div class="card-item">
+            <h4>Shear Cylinder Rod</h4>
+            <p>Pressure:<b> {{ p11Data['shear_rod'] || 'nill' }} bar</b></p>
+          </div>
+        </div>
+        <div class="pressure-card" (click)="consealbore()">
+          <div class="card-item">
+            <h4>Conseal Cylinder Rod</h4>
+            <p>Pressure:<b> {{ p11Data['conseal_bore'] || 'nill' }} bar</b></p>
+          </div>
+        </div>
+      </div><br>
+
+  <!-- Table for Pump 1 and Side Cylinder -->
+  <div class="pressure-table-container">
+    <table class="pressure-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th></th>
+          <th>Difference</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Pump 1 : {{ p11Data['pump_1'] || 'N/A' }} bar</td>
+          <td>Side Cylinder Bore : {{ p11Data['side_bore'] || 'N/A' }} bar</td>
+          <td>{{ p11Data['difference_pump1_side_bore'] || 'nill' }} bar</td>
+        </tr>
+        <tr>
+          <td>Side Cylinder Bore : {{ p11Data['side_bore'] || 'N/A' }} bar</td>
+          <td>Side Cylinder Rod : {{ p11Data['side_rod'] || 'N/A' }} bar</td>
+          <td>{{ p11Data['difference_side_bore_side_rod'] || 'nill' }} bar</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+    </div>
+
+    <!-- Container for P11 Flow Data -->
+    <div class="card">
+      <h3>P11 - Flow</h3>
+      <hr>
+      <div class="pressure-flow-container">
+        <div class="pressure-card">
+          <div class="card-item">
+            <h4>Pump 1 Flow</h4>
+            <p>Flow:<b> {{ p11Dataflow['pump_1'] || 'nill' }} lpm</b></p>
+          </div>
+        </div>
+        <div class="pressure-card">
+          <div class="card-item">
+            <h4>Pump 2 Flow</h4>
+            <p>Flow:<b> {{ p11Dataflow['pump_2'] || 'nill' }} lpm</b></p>
+          </div>
+        </div>
+        <div class="pressure-card">
+          <div class="card-item">
+            <h4>Pump 3 Flow</h4>
+            <p>Flow:<b> {{ p11Dataflow['pump_3'] || 'nill' }} lpm</b></p>
+          </div>
+        </div>
+        <div class="pressure-card">
+          <div class="card-item">
+            <h4>Case Drain Flow</h4>
+            <p>Flow:<b> {{ p11Dataflow['case_drain'] || 'nill' }} lpm</b></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Conditionally display P29 Section based on `showP11` flag -->
+  <div *ngIf="!showP11" class="pressure-flow-container">
+    <div class="card">
+      <h3>P29 - Pressure</h3>
+      <hr>
+      <div class="pressure-flow-container">
+        <div class="pressure-card" (click)="ppump1()">
+          <div class="card-item">
+              <h4>Pump 1 Pressure</h4>
+              <p>Pressure:<b> {{ p29Data['pump_1'] || 'nill' }} bar</b></p>
+            </div>
+          </div>
+
+          <div class="pressure-card" (click)="ssidebore()">
+            <div class="card-item">
+              <h4>Side Cylinder Bore</h4>
+              <p>Pressure:<b> {{ p29Data['side_bore'] || 'nill' }} bar</b></p>
+            </div>
+          </div>
+
+          <div class="pressure-card" (click)="ppump2()">
+            <div class="card-item">
+            <h4>Pump 2 Pressure</h4>
+            <p>Pressure:<b> {{ p29Data['pump_2'] || 'nill' }} bar</b></p>
+          </div>
+        </div>
+        <div class="pressure-card" (click)="ssiderod()">
+          <div class="card-item">
+            <h4>Side Cylinder Rod</h4>
+            <p>Pressure:<b> {{ p29Data['side_rod'] || 'nill' }} bar</b></p>
+          </div>
+        </div>
+        <div class="pressure-card" (click)="ppump3()">
+          <div class="card-item">
+            <h4>Pump 3 Pressure</h4>
+            <p>Pressure:<b> {{ p29Data['pump_3'] || 'nill' }} bar</b></p>
+          </div>
+        </div>
+        <div class="pressure-card" (click)="sshearbore()">
+          <div class="card-item">
+            <h4>Shear Cylinder Bore</h4>
+            <p>Pressure:<b> {{ p29Data['shear_bore'] || 'nill' }} bar</b></p>
+          </div>
+        </div>
+        <div class="pressure-card" (click)="ppump4()">
+          <div class="card-item">
+            <h4>Pump 4 Pressure</h4>
+            <p>Pressure:<b> {{ p29Data['pump_4'] || 'nill' }} bar</b></p>
+          </div>
+        </div>
+        <div class="pressure-card" (click)="cconsealrod()">
+          <div class="card-item">
+            <h4>Conseal Cylinder Rod</h4>
+            <p>Pressure:<b> {{ p29Data['conseal_rod'] || 'nill' }} bar</b></p>
+          </div>
+        </div>
+        <div class="pressure-card" (click)="cconsealrod()">
+          <div class="card-item">
+            <h4>Conseal Cylinder Bore</h4>
+            <p>Pressure:<b> {{ p29Data['conseal_bore'] || 'nill' }} bar</b></p>
+          </div>
+        </div>
+      </div><br>
+      <div class="pressure-table-container">
+        <table class="pressure-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th></th>
+              <th>Difference</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Pump 1 : {{ p29Data['pump_1'] || 'N/A' }} bar</td>
+              <td>Side Cylinder Bore : {{ p29Data['side_bore'] || 'N/A' }} bar</td>
+              <td>{{ p29Data['difference_pump1_side_bore'] || 'nill' }} bar</td>
+            </tr>
+            <tr>
+              <td>Side Cylinder Bore : {{ p29Data['side_bore'] || 'N/A' }} bar</td>
+              <td>Side Cylinder Rod : {{ p29Data['side_rod'] || 'N/A' }} bar</td>
+              <td>{{ p29Data['difference_side_bore_side_rod'] || 'nill' }} bar</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>P29 - Flow</h3>
+      <hr>
+      <div class="pressure-flow-container">
+        <div class="pressure-card">
+          <div class="card-item">
+            <h4>Pump 1 Flow</h4>
+            <p>Flow:<b> {{ p29Dataflow['pump_1'] || 'nill' }} lpm</b></p>
+          </div>
+        </div>
+        <div class="pressure-card">
+          <div class="card-item">
+            <h4>Pump 2 Flow</h4>
+            <p>Flow:<b> {{ p29Dataflow['pump_2'] || 'nill' }} lpm</b></p>
+          </div>
+        </div>
+        <div class="pressure-card">
+          <div class="card-item">
+            <h4>Pump 3 Flow</h4>
+            <p>Flow:<b> {{ p29Dataflow['pump_3'] || 'nill' }} lpm</b></p>
+          </div>
+        </div>
+        <div class="pressure-card">
+          <div class="card-item">
+            <h4>Case Drain Flow</h4>
+            <p>Flow:<b> {{ p29Dataflow['case_drain'] || 'nill' }} lpm</b></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

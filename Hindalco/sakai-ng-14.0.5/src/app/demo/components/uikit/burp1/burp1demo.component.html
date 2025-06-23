@@ -1,0 +1,115 @@
+<style>
+    table, th, td {
+  border:1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+
+}
+ button{
+            border-radius: 5px;
+            width: 210px;
+            background-color: rgb(255, 255, 255);
+            border: 1px solid azure;
+            color: rgb(0, 0, 0);
+            text-align: left;
+            cursor: pointer;
+            height: 35px;
+ }
+ .but:hover {
+  background-color: #deeaf0;
+  color: rgb(0, 0, 0);
+}
+
+
+
+    .card {
+        margin-bottom: 15px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+</style>
+
+
+<div class="card">
+    <h4>P29-Burp</h4>
+    <hr>
+<div class="grid">
+
+    <div class="col-12 xl:col-3">
+        <table>  
+            <tr>
+                <td style="width: 30px;">14</td>
+                <td>
+                    <button class="but"(click)="toggleImage(1)">
+                       Main Crush/Upset (MR)
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">15</td>
+                <td>
+                    <button  class="but"(click)="toggleImage(2)">
+                        Decompress
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">16</td>
+                <td>
+                    <button class="but" (click)="toggleImage(3)">
+                        Main Return
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">17</td>
+                <td>
+                    <button class="but"(click)="toggleImage(4)">
+                        Container Open
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">18</td>
+                <td>
+                    <button  class="but"(click)="toggleImage(5)">
+                        Container Close/Seal
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">19</td>
+                <td>
+                    <button class="but"(click)="toggleImage(6)">
+                        Main Slow Forward
+                    </button>
+                </td>
+            </tr>
+        </table>
+   
+        
+    </div>
+
+    <div class="col-12 xl:col-9" >
+        <div class="card" *ngIf="showImage === 1">
+            <img src="assets/layout/images/P29 Sequence/BURP P29/Main Crush Upset 19/13 Main Crush Upset (mR).gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 2">
+            <img src="assets/layout/images/P29 Sequence/BURP P29/Decompress 14/14 Decompression burp p29.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 3">
+            <img src="assets/layout/images/P29 Sequence/BURP P29/Main Return 15/15 main return burp p29.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 4">
+            <img src="assets/layout/images/P29 Sequence/BURP P29/16 cONTAINER opEN/16 COntainer open p29.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 5">
+            <img src="assets/layout/images/P29 Sequence/BURP P29/Container CLose Seal 17/17 CONTAINER CLOSE  p29.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 6">
+            <img src="assets/layout/images/P29 Sequence/BURP P29/Main SLow Forward 18/18 Main slow forward p29.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+    </div>
+</div>
+</div>

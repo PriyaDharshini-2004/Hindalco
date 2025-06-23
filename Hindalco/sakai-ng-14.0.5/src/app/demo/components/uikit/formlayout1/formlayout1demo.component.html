@@ -1,0 +1,160 @@
+<style>
+  /* Container for the whole layout */
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  /* Card Styling */
+  .card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    flex: 1; /* Allows the card to grow and shrink equally */
+    min-width: 0; /* Prevents the card from shrinking too small */
+  }
+
+  /* Container for pressure cards */
+  .pressure-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  /* Ensure cards fit in grid layout and have the same size */
+  .pressure-card {
+    flex: 1 1 calc(33.33% - 20px); /* Three items per row */
+    max-width: calc(33.33% - 20px); /* Three items per row */
+    box-sizing: border-box;
+  }
+
+  .pressure-card.full-width {
+    flex: 1 1 calc(66.66% - 20px); /* Two items per row */
+    max-width: calc(66.66% - 20px); /* Two items per row */
+  }
+
+  /* Equal height for all cards */
+  .pressure-cards > .pressure-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  /* Ensure card-item elements have uniform height */
+  .card-item {
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd; /* Added border */
+    background-color: rgb(240, 240, 239);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Uniform shadow */
+    flex: 1; /* Allow items to grow */
+  }
+
+  p {
+    font-size: medium;
+  }
+
+  /* Ensure responsiveness */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column; /* Stack cards vertically on small screens */
+    }
+
+    .pressure-card {
+      flex: 1 1 100%; /* Stack items vertically on small screens */
+      max-width: 100%; /* Full width on small screens */
+    }
+  }
+</style>
+
+<div class="container">
+  <div class="card">
+    <h3>P29 - Pressure</h3>
+    <hr>
+    <div class="pressure-cards">
+      <div class="pressure-card">
+        <div class="card-item">
+          <h4>Pump 1 Pressure</h4>
+          <p><b>Pressure:</b>  bar</p>
+        </div>
+      </div>
+      <div class="pressure-card">
+        <div class="card-item">
+          <h4>Pump 2 Pressure</h4>
+          <p><b>Pressure:</b>  bar</p>
+        </div>
+      </div>
+      <div class="pressure-card">
+        <div class="card-item">
+          <h4>Pump 3 Pressure</h4>
+          <p><b>Pressure:</b>  bar</p>
+        </div>
+      </div>
+      <div class="pressure-card">
+        <div class="card-item">
+          <h4>Pump 4 Pressure</h4>
+          <p><b>Pressure:</b>  bar</p>
+        </div>
+      </div>
+      <div class="pressure-card">
+        <div class="card-item">
+          <h4>Side Cylinder rod</h4>
+          <p><b>Pressure:</b>  bar</p>
+        </div>
+      </div>
+      <div class="pressure-card">
+        <div class="card-item">
+          <h4>Conseal Cylinder Rod</h4>
+          <p><b>Pressure:</b>  bar</p>
+        </div>
+      </div>
+      <div class="pressure-card">
+        <div class="card-item">
+          <h4>Shear Cylinder Bore</h4> 
+          <p><b>Pressure:</b>  bar</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>P29 - Flow</h3>
+    <hr>
+    <div class="pressure-cards">
+      <div class="pressure-card">
+        <div class="card-item">
+          <h4>Pump 1 Flow</h4>
+          <p><b>Flow:</b> lpm</p>
+        </div>
+      </div>
+      <div class="pressure-card">
+        <div class="card-item">
+          <h4>Pump 2 Flow</h4>
+          <p><b>Flow:</b> lpm</p>
+        </div>
+      </div>
+      <div class="pressure-card">
+        <div class="card-item">
+          <h4>Pump 3 Flow</h4>
+          <p><b>Flow:</b> lpm</p>
+        </div>
+      </div>
+      <div class="pressure-card">
+        <div class="card-item">
+          <h4>Pump 3 Flow</h4>
+          <p><b>Flow:</b> lpm</p>
+        </div>
+      </div>
+      <div class="pressure-card">
+        <div class="card-item">
+          <h4>Case Drain Flow</h4>
+          <p><b>Flow:</b> lpm</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,95 @@
+<style>
+
+    .back button {
+        width: 150px;
+        height: 40px;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        margin-left: 85%;
+        border: 1px solid rgb(185, 182, 182);
+        background-color: rgb(226, 212, 240);
+      }
+    
+      .back button:hover {
+        background-color: #deeaf0;
+      }
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        border-radius: 10px;
+    }
+
+    table th {
+        background-color: #f2f2f2;
+        padding: 15px;
+        text-align: center;
+    }
+
+    table tbody tr {
+        border-bottom: 1px solid #ddd;
+    }
+
+    table tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    table input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    table input {
+        width: 100%;
+        box-sizing: border-box;
+        border: 1px solid rgb(226, 226, 226);
+        border-radius: 5px;
+        padding: 8px;
+        margin: 4px 0;
+    }
+
+    table input:hover {
+        background-color: rgb(238, 243, 243);
+    }
+   
+</style>
+
+
+
+<div class="card">
+
+  <div class="back">
+    <button (click)="goBack()">Back</button>
+  </div>
+
+  <h1>P29 Planned Hydraulic System Summary</h1>
+  <table style="width: 100%; margin-top: 20px;">
+    <thead>
+      <tr>
+        <th style="height: 50px;">Press Number</th>
+        <th style="height: 50px;">PM Type</th>
+        <th style="height: 50px;">Date</th>
+        <th style="height: 50px;">Maintenance Description</th>
+        <th style="height: 50px;">Status</th>
+        <th style="height: 50px;">Verified By</th>
+        <th style="height: 50px;">Approved By</th>
+        <th style="height: 50px;">Remarks</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of hydraulicPlannedData">
+        <td>{{ item.press_num }}</td>
+        <td>{{ item.pm_type }}</td>
+        <td>{{ item.pm_dateplanned }}</td>
+        <td>{{ item.pm_description }}</td>
+        <td>{{ item.pm_status }}</td>
+        <td>{{ item.verified_by }}</td>
+        <td>{{ item.approved_by }}</td>
+        <td>{{ item.remarks }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

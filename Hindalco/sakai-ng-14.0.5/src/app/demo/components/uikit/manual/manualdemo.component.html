@@ -1,0 +1,238 @@
+<style>
+    table, th, td {
+  border:1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+
+}
+ button{
+            border-radius: 5px;
+            width: 210px;
+            background-color: rgb(255, 255, 255);
+            border: 1px solid azure;
+            color: rgb(0, 0, 0);
+            text-align: left;
+            cursor: pointer;
+            height: 35px;
+ }
+ .but:hover {
+  background-color: #deeaf0;
+  color: rgb(0, 0, 0);
+}
+
+
+
+    .card {
+        margin-bottom: 15px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+</style>
+
+<div class="card">
+    <h4>P11-Manual Sequence</h4>
+    <hr>
+
+<div class="grid">
+
+    <div class="col-12 xl:col-3">
+        <table>  
+            <tr>
+                <td style="width: 30px;">1</td>
+                <td>
+                    <button class="but"(click)="toggleImage(1)">
+                        Shear Down
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">2</td>
+                <td>
+                    <button  class="but"(click)="toggleImage(2)">
+                        Shear Up
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">3</td>
+                <td>
+                    <button class="but" (click)="toggleImage(3)">
+                        Container Open
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">4</td>
+                <td>
+                    <button class="but"(click)="toggleImage(4)">
+                        Container Close
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">5</td>
+                <td>
+                    <button  class="but"(click)="toggleImage(5)">
+                        Container Seal
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">6</td>
+                <td>
+                    <button class="but"(click)="toggleImage(6)">
+                        Loader Up
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">7</td>
+                <td>
+                    <button class="but"(click)="toggleImage(7)">
+                        Loader Down
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">8</td>
+                <td>
+                    <button class="but"(click)="toggleImage(8)">
+                        Main Forward
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">9</td>
+                <td>
+                    <button class="but"(click)="toggleImage(9)">
+                        Main Extrude
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">10</td>
+                <td>
+                    <button class="but"(click)="toggleImage(10)">
+                        Main Return
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">11</td>
+                <td>
+                    <button class="but"(click)="toggleImage(11)">
+                        Die Slide Extend
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">12</td>
+                <td>
+                    <button class="but"(click)="toggleImage(12)">
+                        Die Slide Extend Hold
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">13</td>
+                <td>
+                    <button class="but"(click)="toggleImage(13)">
+                        Die Slide Retract
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">14</td>
+                <td>
+                    <button class="but"(click)="toggleImage(14)">
+                        Die Slide Retract Hold
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">15</td>
+                <td>
+                    <button class="but"(click)="toggleImage(15)">
+                        Die Shuffle Extend
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">16</td>
+                <td>
+                    <button class="but"(click)="toggleImage(16)">
+                        Die Shuffle Retract
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">17</td>
+                <td>
+                    <button class="but"(click)="toggleImage(17)">
+                        Butt Knock
+                    </button>
+                </td>
+            </tr>
+        </table>
+   
+        
+    </div>
+
+    <div class="col-12 xl:col-9" >
+        <div class="card" *ngIf="showImage === 1">
+            <img src="assets/layout/images/P11 Sequence/Manual Sequence/Shear Down 1/Shear down 1 P11 Manual .gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 2">
+            <img src="assets/layout/images/P11 Sequence/Manual Sequence/Shear Up 2/Shear Up 2 P11 Manual.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 3">
+            <img src="assets/layout/images/P11 Sequence/Manual Sequence/Container Open 3/Container Open 3 P11 manual.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 4">
+            <img src="assets/layout/images/P11 Sequence/Manual Sequence/Container Close 4/Container Close 4 P11 Manual .gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 5">
+            <img src="assets/layout/images/P11 Sequence/Manual Sequence/Container Seal 5/Container seal 5 P11 Manual.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 6">
+            <img src="assets/layout/images/P11 Sequence/Manual Sequence/Loader Up 6/Loader Up 6 P11 Manual.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 7">
+            <img src="assets/layout/images/P11 Sequence/Manual Sequence/Loader Down 7/Loader Down 7 P11 Manual.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 8">
+            <img src="assets/layout/images/P11 Sequence/Manual Sequence/Main Forward 8/Main Forward 8 P11 Manual.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 9">
+            <img src="assets/layout/images/P11 Sequence/Manual Sequence/Main Extrude 9/Main Extrude 9 P11 Manual.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 10">
+            <img src="assets/layout/images/P11 Sequence/Manual Sequence/Main Return 10/Main Return 10 P11 Manual.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 11">
+            <img src="assets/layout/images/P11 Sequence/Manual Sequence/Die Slide Extrude 11/Die Slide Extend 11 P11 Manual.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 12">
+            <img src="assets/layout/images/P11 Sequence/Manual Sequence/Die Slide Extend Hold 12/Die Slide Extend Hold 12 P11 Manual.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 13">
+            <img src="assets/layout/images/P11 Sequence/Manual Sequence/Die Slide Retract 13/_Die Slide Refract 12 P11 Manual.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 14">
+            <img src="assets/layout/images/P11 Sequence/Manual Sequence/Die Slide Retract Hold 14/Die Slide Refract Hold 14 P11 Manual.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 15">
+            <img src="assets/layout/images/P11 Sequence/Manual Sequence/Die Shuffle Extend 15/Die Shuffle Extend 15 P11 Manual.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 16">
+            <img src="assets/layout/images/P11 Sequence/Manual Sequence/Die Shuttle Retract 16/Die Shuffle Retract 16 P11 Manual.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 17">
+            <img src="assets/layout/images/P11 Sequence/Manual Sequence/Butt Knock 17/Butt Knock 17 P11 Manual.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+    </div>
+    
+   
+
+</div>

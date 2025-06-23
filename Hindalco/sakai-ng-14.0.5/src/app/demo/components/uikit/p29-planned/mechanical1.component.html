@@ -1,0 +1,259 @@
+<!-- Import FormsModule in your Angular module -->
+<!-- import { FormsModule } from '@angular/forms'; -->
+
+<style>
+  /* Your styles here */
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    border-radius: 10px;
+  }
+
+  .button button, .form-modal button {
+    border-radius: 10px;
+    width: 150px;
+    height: 40px;
+    background-color: rgb(226, 212, 240);
+    border: 1px solid rgb(197, 197, 197);
+  }
+
+  .pop button {
+    border-radius: 10px;
+    width: 150px;
+    height: 40px;
+    background-color: rgb(226, 212, 240);
+    border: 1px solid rgb(197, 197, 197);
+    margin-right: 80%;
+    margin-top: 20px;
+  }
+
+  select {
+    width: 200px;
+    box-sizing: border-box;
+    border: 1px solid #aaa;
+    border-radius: 7px;
+    padding: 10px;
+    margin-right: 2px;
+    color: rgb(126, 132, 132);
+    font-size: 15px;
+    margin-top: 15px;
+  }
+
+  .popup input, .form-modal input {
+    width: 200px;
+    box-sizing: border-box;
+    border: 1px solid #aaa;
+    border-radius: 7px;
+    padding: 10px;
+    margin-right: 50px;
+    color: rgb(126, 132, 132);
+    font-size: 15px;
+    margin-top: 15px;
+  }
+
+  .popup label {
+    font-size: 20px;
+  }
+
+  .box {
+    background-color: rgb(226, 212, 240);
+    width: 200px;
+    border: 1px solid rgb(226, 212, 240);
+    padding: 10px;
+    margin: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  
+
+  .pop button:hover {
+    background-color: #deeaf0;
+  }
+
+  .button button:hover {
+    background-color: #deeaf0;
+  }
+
+  /* Additional styles for the table */
+  table th {
+    background-color: #f2f2f2;
+    padding: 15px;
+    text-align: center;
+  }
+
+  table tbody tr {
+    border-bottom: 1px solid #ddd;
+  }
+
+  table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  table input[type="checkbox"] {
+  width: 20px; /* Adjust the width as needed */
+  height: 20px; /* Adjust the height as needed */
+  margin: 0 auto; /* Center the checkbox horizontally */
+  display: block;
+}
+
+  table input {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgb(226, 226, 226);
+    border-radius: 5px;
+    padding: 8px;
+    margin: 4px 0;
+  }
+
+  table input:hover {
+    background-color: rgb(238, 243, 243);
+  }
+
+  .form-container {
+    width: 100%;
+    margin: auto;
+  }
+
+  .form-container button:hover {
+    background-color: #deeaf0;
+  }
+
+  .back button {
+    width: 150px;
+    height: 40px;
+    margin-bottom: 15px;
+    margin-left: 85%;
+    border-radius: 8px;
+    border: 1px solid rgb(185, 182, 182);
+    background-color: rgb(226, 212, 240);
+  }
+
+  .back button:hover {
+    background-color: #deeaf0;
+  }
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    color: #000;
+  }
+  .popup {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    position: relative;
+  }
+
+  .form-modal {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+  }
+</style>
+
+<!-- Your Angular Component HTML -->
+<div class="card">
+  <div class="back">
+    <button (click)="goBack()">Back</button>
+  </div>
+
+  <div class="button">
+    <button (click)="showPopup()" style="margin-bottom: 20px;">Scheduled</button>
+  </div>
+
+  <hr>
+
+
+  <div class="popup" *ngIf="isPopupVisible">
+    <button class="close-btn" (click)="hidePopup()">&times;</button>
+    <label><b>Current Scheduled :</b> Monday</label><br>
+    <label class="new"><b>New Scheduled Day : </b></label>
+    <select name="day" class="day1">
+      <option value="sunday">Sunday</option>
+      <option value="monday">Monday</option>
+      <option value="tuesday">Tuesday</option>
+      <option value="wednesday">Wednesday</option>
+      <option value="thursday">Thursday</option>
+      <option value="friday">Friday</option>
+      <option value="saturday">Saturday</option>
+    </select>
+    <br>
+    <label class="new1"><b>New Scheduled Date : </b></label>
+    <input type="date" (change)="onDateSelect($event)">
+
+    <div class="pop">
+      <button (click)="submitSchedule()">Submit</button>
+    </div>
+  </div>
+
+  <div>
+    <h4>P29-Planned Maintenance / Mechanical Systems</h4>
+    <div *ngIf="dateInformation">
+      <b>Year:</b> {{ dateInformation.year }} /
+      <b>Month:</b> {{ dateInformation.month }} /
+      <b>Week:</b> {{ dateInformation.week }} /
+      <b>Date:</b> {{ dateInformation.day }} /
+      <b>Day:</b> {{ dateInformation.weekday }}
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="button">
+    <button style="margin-bottom: 20px;" (click)="openForm()">Edit</button>
+  </div>
+
+  <div *ngIf="showForm" class="form-modal">
+    <div class="form-container">
+      <label for="maintenanceDescription" style="margin-left: 20px;"><b>Maintenance Description : </b></label>
+      <input type="text" id="maintenanceDescription" [(ngModel)]="newRow.maintenanceDescription" required>
+      <br>
+      <button (click)="addRow()" style="margin-right: 20px; margin-top: 20px;">Add</button>
+      <button (click)="closeForm()">Cancel</button>
+      <button (click)="removeLastRow()" style="margin-left: 20px; margin-top: 20px;">Remove Last Row</button>
+    </div>
+  </div>
+
+  <form (ngSubmit)="submitForm()">
+    <table style="width: 100%; margin-top: 20px;">
+      <thead>
+        <tr>
+          <th style="height: 50px;">Date</th>
+          <th style="height: 50px;">S.No</th>
+          <th style="height: 50px; width: 500px;">Maintenance Description</th>
+          <th style="height: 50px;">Checkbox</th>
+          <th style="height: 50px;">Received By</th>
+          <th style="height: 50px;">Approved By</th>
+          <th style="height: 50px;">Remarks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of rows; let i = index">
+          <td><input type="date" name="date{{i}}" [(ngModel)]="row.date"></td>
+          <td style="text-align: center;">{{ 1 + i }}</td>
+          <td><span>{{ row.maintenanceDescription }}</span></td>
+          <td><input type="checkbox" name="checkbox{{i}}" [(ngModel)]="row.checkbox"></td>
+          <td><input type="text" name="reviewedBy{{i}}" [(ngModel)]="row.reviewedBy"></td>
+          <td><input type="text" name="approvedBy{{i}}" [(ngModel)]="row.approvedBy"></td>
+          <td><input type="text" name="remarks{{i}}" [(ngModel)]="row.remarks"></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="button">
+      <button style="margin-right: 20px; margin-top: 20px; border-radius: 10px; width: 150px; height: 40px;"
+        type="submit">Submit</button>
+    </div>
+  </form>
+</div>

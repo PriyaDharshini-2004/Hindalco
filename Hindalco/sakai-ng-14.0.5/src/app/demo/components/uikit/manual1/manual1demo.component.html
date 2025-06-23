@@ -1,0 +1,279 @@
+<style>
+    table, th, td {
+  border:1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+
+}
+ button{
+            border-radius: 5px;
+            width: 210px;
+            background-color: rgb(255, 255, 255);
+            border: 1px solid azure;
+            color: rgb(0, 0, 0);
+            text-align: left;
+            cursor: pointer;
+            height: 35px;
+ }
+ .but:hover {
+  background-color: #deeaf0;
+  color: rgb(0, 0, 0);
+}
+
+
+
+    .card {
+        margin-bottom: 15px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+</style>
+
+
+<div class="card">
+    <h4>P29-Manual Sequence</h4>
+    <hr>
+<div class="grid">
+
+    <div class="col-12 xl:col-3">
+        <table>  
+            <tr>
+                <td style="width: 30px;">20</td>
+                <td>
+                    <button class="but"(click)="toggleImage(1)">
+                        Main Break Thru (MR)
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">21</td>
+                <td>
+                    <button  class="but"(click)="toggleImage(2)">
+                        Main Extrude
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">22</td>
+                <td>
+                    <button class="but" (click)="toggleImage(3)">
+                        Main Hold
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">23</td>
+                <td>
+                    <button class="but"(click)="toggleImage(4)">
+                        Main Extrude
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">24</td>
+                <td>
+                    <button  class="but"(click)="toggleImage(5)">
+                        Low Tonnage Selection
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">25</td>
+                <td>
+                    <button class="but"(click)="toggleImage(6)">
+                        Shear Down
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">26</td>
+                <td>
+                    <button class="but"(click)="toggleImage(7)">
+                        Shear Up
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">27</td>
+                <td>
+                    <button class="but"(click)="toggleImage(8)">
+                        Container Open
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">28</td>
+                <td>
+                    <button class="but"(click)="toggleImage(9)">
+                        Container Close 
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">29</td>
+                <td>
+                    <button class="but"(click)="toggleImage(10)">
+                        Container Seal
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">30</td>
+                <td>
+                    <button class="but"(click)="toggleImage(11)">
+                        Loader Up
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">31</td>
+                <td>
+                    <button class="but"(click)="toggleImage(12)">
+                        Loader Down
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">32</td>
+                <td>
+                    <button class="but"(click)="toggleImage(13)">
+                        Main Forward
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">33</td>
+                <td>
+                    <button class="but"(click)="toggleImage(14)">
+                        Main Extrude
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">34</td>
+                <td>
+                    <button class="but"(click)="toggleImage(15)">
+                        Main Return
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">35</td>
+                <td>
+                    <button class="but"(click)="toggleImage(16)">
+                        Die Slide In
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">36</td>
+                <td>
+                    <button class="but"(click)="toggleImage(17)">
+                        Die Slide Out
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">37</td>
+                <td>
+                    <button class="but"(click)="toggleImage(18)">
+                        Die Shuttle North
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">38</td>
+                <td>
+                    <button class="but"(click)="toggleImage(19)">
+                        Die Shuttle North Hold
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">39</td>
+                <td>
+                    <button class="but"(click)="toggleImage(20)">
+                        Die Shuttle South
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">40</td>
+                <td>
+                    <button class="but"(click)="toggleImage(21)">
+                        Die Shuttle South Hold
+                    </button>
+                </td>
+            </tr>
+        </table>
+   
+        
+    </div>
+
+    <div class="col-12 xl:col-9" >
+        <div class="card" *ngIf="showImage === 1">
+            <img src="assets/layout/images/P29 Sequence/Manual SEQ P29/20 Main Break thru MR/20 Main Break thru MR.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 2">
+            <img src="assets/layout/images/P29 Sequence/Manual SEQ P29/21 Main Extrude/21 Main Extrude.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 3">
+            <img src="assets/layout/images/P29 Sequence/Manual SEQ P29/22 Main Hold/22 Main Hold.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 4">
+            <img src="assets/layout/images/P29 Sequence/Manual SEQ P29/23 Main Extrude/23 Main Extrude.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 5">
+            <img src="assets/layout/images/P29 Sequence/Manual SEQ P29/24 Low Tonnage Selectior/24 low tonnage selectior.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 6">
+            <img src="assets/layout/images/P29 Sequence/Manual SEQ P29/25 Shear down/25 Shear down.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 7">
+            <img src="assets/layout/images/P29 Sequence/Manual SEQ P29/26 Shear Up/26 Shear Up.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 8">
+            <img src="assets/layout/images/P29 Sequence/Manual SEQ P29/27 Container Open/27 Container OPen p29.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 9">
+            <img src="assets/layout/images/P29 Sequence/Manual SEQ P29/28 Container Close/28 Container Close.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 10">
+            <img src="assets/layout/images/P29 Sequence/Manual SEQ P29/29 Container Seal/29 Container Seal p29.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 11">
+            <img src="assets/layout/images/P29 Sequence/Manual SEQ P29/30 Loader Up/30 Loader Up.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 12">
+            <img src="assets/layout/images/P29 Sequence/Manual SEQ P29/31 Loader down/31 Loader down.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 13">
+            <img src="assets/layout/images/P29 Sequence/Manual SEQ P29/32 Main forward p29/32 Main forward p29.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 14">
+            <img src="assets/layout/images/P29 Sequence/Manual SEQ P29/33 Main Extrude p29/33 Main Extrude Manual p29.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 15">
+            <img src="assets/layout/images/P29 Sequence/Manual SEQ P29/34 Main Return p29/34 Main Return P29 MAnual.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 16">
+            <img src="assets/layout/images/P29 Sequence/Manual SEQ P29/35 Die Slide In/35 Die Slide IN P29 Manual .gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 17">
+            <img src="assets/layout/images/P29 Sequence/Manual SEQ P29/36 Die Slide Out P29/36 Die Slide Out P29 Manual.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 18">
+            <img src="assets/layout/images/P29 Sequence/Manual SEQ P29/37 Die Shuttle North P29/37 Die Shuttle North P29 manual .gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 19">
+            <img src="assets/layout/images/P29 Sequence/Manual SEQ P29/38 Die Shuttle North hold/38 Die Slide North Hold.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 20">
+            <img src="assets/layout/images/P29 Sequence/Manual SEQ P29/39 Die Shuttle South/39 Die Shuttle South P29 manual .gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 21">
+            <img src="assets/layout/images/P29 Sequence/Manual SEQ P29/40 Die Shuttle South Hold/40 Die Shuttle South Hold P29 manual.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+    </div>
+</div>

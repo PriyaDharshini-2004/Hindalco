@@ -1,0 +1,273 @@
+<style>
+    table, th, td {
+  border:1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+
+}
+ button{
+            border-radius: 5px;
+            width: 230px;
+            background-color: rgb(255, 255, 255);
+            border: 1px solid azure;
+            color: rgb(0, 0, 0);
+            text-align: left;
+            cursor: pointer;
+            height: 35px;
+ }
+ .but:hover {
+  background-color: #deeaf0;
+  color: rgb(0, 0, 0);
+}
+
+
+
+    .card {
+        margin-bottom: 15px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+</style>
+
+
+<div class="card">
+<h4>P11-Auto Cycle</h4>
+<hr>
+<div class="grid">
+
+    <div class="col-12 xl:col-3">
+        <table>  
+            <tr>
+                <td style="width: 30px;">1</td>
+                <td>
+                    <button class="but"(click)="toggleImage(1)">
+                        Container Seal<br>
+                        M R Decompression
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">2</td>
+                <td>
+                    <button  class="but"(click)="toggleImage(2)">
+                        Container Sealing Off<br>
+                        M R Hold
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">3</td>
+                <td>
+                    <button class="but" (click)="toggleImage(3)">
+                        Container Strip<br>
+                        M R Hold
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">4</td>
+                <td>
+                    <button class="but"(click)="toggleImage(4)">
+                        Container Open <br>
+                        M R Rtn By Catcher
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">5</td>
+                <td>
+                    <button  class="but"(click)="toggleImage(5)">
+                        Shear Down<br>
+                        M R Return(with one pump)
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">6</td>
+                <td>
+                    <button class="but"(click)="toggleImage(6)">
+                        Shear Up<br>
+                        M R Return(with one pump)
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">7</td>
+                <td>
+                    <button class="but"(click)="toggleImage(7)">
+                        Container Close<br>
+                        M R Return
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">8</td>
+                <td>
+                    <button class="but"(click)="toggleImage(8)">
+                        Container Seal<br>
+                        M R Rtn Fast(with two pumps)
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">9</td>
+                <td>
+                    <button class="but"(click)="toggleImage(9)">
+                        Container Seal<br>
+                        M R Slow Return
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">10</td>
+                <td>
+                    <button class="but"(click)="toggleImage(10)">
+                        C. S. & Craddle/Loader Up<br>
+                        M R Stop
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">11</td>
+                <td>
+                    <button class="but"(click)="toggleImage(11)">
+                        Cradle/Loader Hold at Up Position<br>
+                        Main Ram Fwd in Regen
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">12</td>
+                <td>
+                    <button class="but"(click)="toggleImage(12)">
+                        Cradle/Loader Down<br>
+                        Main Slow Fwd in Regen
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">13</td>
+                <td>
+                    <button class="but"(click)="toggleImage(13)">
+                        Cradle/Loader Down<br>
+                        Main slow fwd (SC)
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">14</td>
+                <td>
+                    <button class="but"(click)="toggleImage(14)">
+                        Cradle Stop<br>
+                        Main Slow fwd (SC)
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">15</td>
+                <td>
+                    <button class="but"(click)="toggleImage(15)">
+                        Prefil Close/M.R.Crush/Upset
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">23</td>
+                <td>
+                    <button class="but"(click)="toggleImage(16)">
+                        Main Break Thru (MR)
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">24</td>
+                <td>
+                    <button class="but"(click)="toggleImage(17)">
+                        Main Extrude
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">25</td>
+                <td>
+                    <button class="but"(click)="toggleImage(18)">
+                        Main Hold
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">26</td>
+                <td>
+                    <button class="but"(click)="toggleImage(19)">
+                        Main Extrude
+                    </button>
+                </td>
+            </tr>
+       
+        </table>
+   
+        
+    </div>
+
+    <div class="col-12 xl:col-9" >
+        <div class="card" *ngIf="showImage === 1">
+            <img src="assets/layout/images/P11 Sequence/Auto Cycle Sequence/Container Seal Cylinder 1/Container Seal Cylinder.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 2">
+            <img src="assets/layout/images/P11 Sequence/Auto Cycle Sequence/Container Seal Off 2/Container seal off.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast"> 
+        </div>
+        <div class="card" *ngIf="showImage === 3">
+            <img src="assets/layout/images/P11 Sequence/Auto Cycle Sequence/Container Strip 3/Container Strip .gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 4">
+            <img src="assets/layout/images/P11 Sequence/Auto Cycle Sequence/Container Open 4/Container Open 4  .gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 5">
+            <img src="assets/layout/images/P11 Sequence/Auto Cycle Sequence/Shear Down 5/Shear Down 5.gif"height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 6">
+            <img src="assets/layout/images/P11 Sequence/Auto Cycle Sequence/Shear Up 6/Shear Up 6.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 7">
+            <img src="assets/layout/images/P11 Sequence/Auto Cycle Sequence/Container Close 7/Container Close 7.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 8">
+            <img src="assets/layout/images/P11 Sequence/Auto Cycle Sequence/Container Seal 8/Container Seal 8.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 9">
+            <img src="assets/layout/images/P11 Sequence/Auto Cycle Sequence/Container Seal 9/Container Seal 9.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 10">
+            <img src="assets/layout/images/P11 Sequence/Auto Cycle Sequence/CS & Craddle Loader Up 10/CS & craddle 10.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 11">
+            <img src="assets/layout/images/P11 Sequence/Auto Cycle Sequence/Craddle Loader Hold 11/Craddle Loader 11.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 12">
+            <img src="assets/layout/images/P11 Sequence/Auto Cycle Sequence/Craddle Loader Down 12/Craddle Loader 12.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 13">
+            <img src="assets/layout/images/P11 Sequence/Auto Cycle Sequence/Craddle Loader Down 13/Craddle Loader 13.gif"height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 14">
+            <img src="assets/layout/images/P11 Sequence/Auto Cycle Sequence/Cradle Stop 14/Craddle Stop 14.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 15">
+            <img src="assets/layout/images/P11 Sequence/Auto Cycle Sequence/Prefil Close 15/Prefill Close 15.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 16">
+            <img src="assets/layout/images/P11 Sequence/Auto Cycle Sequence/Main break thru 23/Main Break thru 23.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 17">
+            <img src="assets/layout/images/P11 Sequence/Auto Cycle Sequence/Main Extrude 24/Main Extrude 24.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 18">
+            <img src="assets/layout/images/P11 Sequence/Auto Cycle Sequence/Main Hold 25/Main Hold 25.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 19">
+            <img src="assets/layout/images/P11 Sequence/Auto Cycle Sequence/main Extrude 26/Main Extrude 26.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,131 @@
+<style>
+    table, th, td {
+  border:1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+
+}
+ button{
+            border-radius: 5px;
+            width: 210px;
+            background-color: rgb(255, 255, 255);
+            border: 1px solid azure;
+            color: rgb(0, 0, 0);
+            text-align: left;
+            cursor: pointer;
+            height: 35px;
+ }
+ .but:hover {
+  background-color: #deeaf0;
+  color: rgb(0, 0, 0);
+}
+
+
+
+    .card {
+        margin-bottom: 15px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+</style>
+
+
+<div class="card">
+    <h4>P11-Burp</h4>
+    <hr>
+<div class="grid">
+
+    <div class="col-12 xl:col-3">
+        <table>  
+            <tr>
+                <td style="width: 30px;">16</td>
+                <td>
+                    <button class="but"(click)="toggleImage(1)">
+                        Container Seal<br>
+                        M R Decompress
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">17</td>
+                <td>
+                    <button  class="but"(click)="toggleImage(2)">
+                        Container Seal<br>
+                        Main Return by 10/25mm
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">18</td>
+                <td>
+                    <button class="but" (click)="toggleImage(3)">
+                        Container Open by Sealing Zone<br>
+                        Main Stop
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">19</td>
+                <td>
+                    <button class="but"(click)="toggleImage(4)">
+                        Container Close
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">20</td>
+                <td>
+                    <button  class="but"(click)="toggleImage(5)">
+                        Container Seal
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">21</td>
+                <td>
+                    <button class="but"(click)="toggleImage(6)">
+                        Main Slow Forward
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">22</td>
+                <td>
+                    <button class="but"(click)="toggleImage(7)">
+                        Prefil Close/M.R Crush/Upset
+                    </button>
+                </td>
+            </tr>
+        </table>
+   
+        
+    </div>
+
+    <div class="col-12 xl:col-9" >
+        <div class="card" *ngIf="showImage === 1">
+            <img src="assets/layout/images/P11 Sequence/BURP/Container Close 19/Container Close 19.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 2">
+            <img src="assets/layout/images/P11 Sequence/BURP/Container Seal 17/Container Seal 17.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast"> 
+        </div>
+        <div class="card" *ngIf="showImage === 3">
+            <img src="assets/layout/images/P11 Sequence/BURP/Container Open 18/Container open 18.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 4">
+            <img src="assets/layout/images/P11 Sequence/BURP/Container Close 19/Container Close 19.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 5">
+            <img src="assets/layout/images/P11 Sequence/BURP/Container Seal 20/Container Seal 20.gif"height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 6">
+            <img src="assets/layout/images/P11 Sequence/BURP/Main Slow forward 21/Main Slow Forward 21.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 7">
+            <img src="assets/layout/images/P11 Sequence/BURP/Prefill Close MR 22/Prefill Close 22.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+    </div>
+    
+   
+</div>
+</div>

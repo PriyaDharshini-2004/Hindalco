@@ -1,0 +1,483 @@
+<style>
+  .back button {
+    width: 150px;
+    height: 40px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    margin-left: 85%;
+    border: 1px solid rgb(185, 182, 182);
+    background-color: rgb(226, 212, 240);
+  }
+
+  .back button:hover {
+    background-color: #deeaf0;
+  }
+
+  table,
+  th,
+  td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    border-radius: 10px;
+  }
+
+  .button button,
+  .form-modal button {
+    border-radius: 10px;
+    width: 150px;
+    height: 40px;
+    background-color: rgb(226, 212, 240);
+    border: 1px solid rgb(197, 197, 197);
+  }
+
+  .pop button {
+    border-radius: 10px;
+    width: 150px;
+    height: 40px;
+    background-color: rgb(226, 212, 240);
+    border: 1px solid rgb(197, 197, 197);
+    margin-right: 80%;
+    margin-top: 20px;
+    
+
+  }
+
+  select {
+    width: 200px;
+    box-sizing: border-box;
+    border: 1px solid #aaa;
+    border-radius: 7px;
+    padding: 10px;
+    margin-right: 2px;
+    color: rgb(126, 132, 132);
+    font-size: 15px;
+    margin-top: 15px;
+  }
+
+  .popup input,
+  .form-modal input {
+    width: 200px;
+    box-sizing: border-box;
+    border: 1px solid #aaa;
+    border-radius: 7px;
+    padding: 10px;
+    margin-right: 50px;
+    color: rgb(126, 132, 132);
+    font-size: 15px;
+    margin-top: 15px;
+  }
+
+  .popup label {
+    font-size: 20px;
+  }
+
+  .box {
+    background-color: rgb(226, 212, 240);
+    width: 200px;
+    border: 1px solid rgb(226, 212, 240);
+    padding: 10px;
+    margin: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+ 
+
+  .pop button:hover {
+    background-color: #deeaf0;
+  }
+
+  .button button:hover {
+    background-color: #deeaf0;
+  }
+
+  /* Additional styles for the table */
+  table th {
+    background-color: #f2f2f2;
+    padding: 15px;
+    text-align: center;
+  }
+
+  table tbody tr {
+    border-bottom: 1px solid #ddd;
+  }
+
+  table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  table input {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgb(226, 226, 226);
+    border-radius: 5px;
+    padding: 8px;
+    margin: 4px 0;
+
+  }
+
+  table input:hover {
+    background-color: rgb(238, 243, 243);
+  }
+
+  table input[type="checkbox"] {
+    width: 20px;
+    /* Adjust the width as needed */
+    height: 20px;
+    /* Adjust the height as needed */
+    margin: 0 auto;
+    /* Center the checkbox horizontally */
+    display: block;
+  }
+
+
+  .form-container {
+    width: 100%;
+    margin: auto;
+  }
+
+  .form-container button:hover {
+    background-color: #deeaf0;
+
+  }
+
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    color: #000;
+  }
+
+
+
+
+  .popup {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    position: relative;
+
+
+  }
+
+  .form-modal {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+  }
+  .submit{
+    
+    width: 150px;
+    height: 40px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    margin-left: 85%;
+    border: 1px solid rgb(185, 182, 182);
+    background-color: rgb(226, 212, 240);
+  }
+
+  .button-container {
+    display: flex;
+  }
+
+  
+</style>
+
+
+
+
+<div class="card">
+  <div class="back">
+    <button (click)="goBack()">Back</button>
+  </div>
+
+  <div class="button">
+    <button (click)="showPopup()" style="margin-bottom: 20px;">Scheduled</button>
+  </div>
+
+  <hr>
+
+
+  <div class="popup" *ngIf="isPopupVisible">
+
+    <button class="close-btn" (click)="hidePopup()">&times;</button>
+
+
+    <label><b>Current Scheduled :</b> Monday</label>
+    <br>
+    <label class="new"><b>New Scheduled Day : </b></label>
+    <select name="day" class="day1">
+      <option value="sunday">Sunday</option>
+      <option value="monday">Monday</option>
+      <option value="tuesday">Tuesday</option>
+      <option value="wednesday">Wednesday</option>
+      <option value="thursday">Thursday</option>
+      <option value="friday">Friday</option>
+      <option value="saturday">Saturday</option>
+    </select>
+    <br>
+    <label class="new1"><b>New Scheduled Date : </b></label>
+    <input type="date" (change)="onDateSelect($event)">
+
+    <div class="button">
+      <button (click)="submitSchedule()" style="margin-right: 20px; margin-top: 20px;" >Submit</button>
+    </div>
+    
+  </div>
+
+  
+  <div>
+    <h4>P11-Planned Maintenance / Hydraulics System</h4>
+    <div *ngIf="dateInformation">
+      <b>Year:</b> {{ dateInformation.year }} /
+      <b>Month:</b> {{ dateInformation.month }} /
+      <b>Week:</b> {{ dateInformation.week }} /
+      <b>Date:</b> {{ dateInformation.day }} /
+      <b>Day:</b> {{ dateInformation.weekday }}
+    </div>
+  </div>
+
+  <hr>
+
+  <div>
+
+  </div>
+
+  <div class="button-container">
+    <div class="button">  
+      <button style="margin-bottom: 20px;" (click)="openForm()">Edit</button>
+    </div>
+  </div>
+  
+
+  <div *ngIf="showForm" class="form-modal">
+    <div class="form-container">
+      <label for="maintenanceDescription" style="margin-left: 20px;"><b>Maintenance Description : </b></label>
+      <input type="text" id="maintenanceDescription" [(ngModel)]="newRow.maintenanceDescription" required>
+      <br>
+      <button (click)="addRow()" style="margin-right:20px; margin-top:20px;">Add</button>
+      <button (click)="closeForm()" style="margin-right:20px; margin-top:20px;">Cancel</button>
+      <button (click)="removeLastRow()" style="margin-right:20px; margin-top:20px;">Remove Last Row</button>
+    </div>
+  </div>
+  
+
+
+  <form (ngSubmit)="submitForm()">
+  <table>
+    <thead>
+      <tr>
+        <th>Date </th>
+        <th>S.No</th>
+        <th>Maintenance Description</th>
+        <th>Checkbox</th>
+        <th>Reviewed By</th>
+        <th>Approved By</th> 
+        <th>Remarks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input type="date" name="date1" [(ngModel)]="formData[0].date"></td>
+        <td style="text-align: center;">1</td>
+        <td>{{ formData[0].maintenanceDescription }}</td>
+        <td><input type="checkbox" name="checkbox1" [(ngModel)]="formData[0].checkbox"></td>
+        <td><input type="text" name="reviewedBy1" [(ngModel)]="formData[0].reviewedBy"></td>
+        <td><input type="text" name="approvedBy1" [(ngModel)]="formData[0].approvedBy"></td>
+        <td><input type="text" name="remarks1" [(ngModel)]="formData[0].remarks"></td>
+      </tr>
+      <tr>
+        <td><input type="date" name="date2" [(ngModel)]="formData[1].date"></td>
+        <td style="text-align: center;">2</td>
+        <td>{{ formData[1].maintenanceDescription }}</td>
+        <td><input type="checkbox" name="checkbox2" [(ngModel)]="formData[1].checkbox"></td>
+        <td><input type="text" name="reviewedBy2" [(ngModel)]="formData[1].reviewedBy"></td>
+        <td><input type="text" name="approvedBy2" [(ngModel)]="formData[1].approvedBy"></td>
+        <td><input type="text" name="remarks2" [(ngModel)]="formData[1].remarks"></td>
+      </tr>
+      <tr>
+        <td><input type="date" name="date3" [(ngModel)]="formData[2].date"></td>
+        <td style="text-align: center;">3</td>
+        <td>{{ formData[2].maintenanceDescription }}</td>
+        <td><input type="checkbox" name="checkbox3" [(ngModel)]="formData[2].checkbox"></td>
+        <td><input type="text" name="reviewedBy3" [(ngModel)]="formData[2].reviewedBy"></td>
+        <td><input type="text" name="approvedBy3" [(ngModel)]="formData[2].approvedBy"></td>
+        <td><input type="text" name="remarks3" [(ngModel)]="formData[2].remarks"></td>
+      </tr>
+      <tr>
+        <td><input type="date" name="date4" [(ngModel)]="formData[3].date"></td>
+        <td style="text-align: center;">4</td>
+        <td>{{ formData[3].maintenanceDescription }}</td>
+        <td><input type="checkbox" name="checkbox4" [(ngModel)]="formData[3].checkbox"></td>
+        <td><input type="text" name="reviewedBy4" [(ngModel)]="formData[3].reviewedBy"></td>
+        <td><input type="text" name="approvedBy4" [(ngModel)]="formData[3].approvedBy"></td>
+        <td><input type="text" name="remarks4" [(ngModel)]="formData[3].remarks"></td>
+      </tr>
+      <tr>
+        <td><input type="date" name="date5" [(ngModel)]="formData[4].date"></td>
+        <td style="text-align: center;">5</td>
+        <td>{{ formData[4].maintenanceDescription }}</td>
+        <td><input type="checkbox" name="checkbox5" [(ngModel)]="formData[4].checkbox"></td>
+        <td><input type="text" name="reviewedBy5" [(ngModel)]="formData[4].reviewedBy"></td>
+        <td><input type="text" name="approvedBy5" [(ngModel)]="formData[4].approvedBy"></td>
+        <td><input type="text" name="remarks5" [(ngModel)]="formData[4].remarks"></td>
+      </tr>
+      <tr>
+        <td><input type="date" name="date6" [(ngModel)]="formData[5].date"></td>
+        <td style="text-align: center;">6</td>
+        <td>{{ formData[5].maintenanceDescription }}</td>
+        <td><input type="checkbox" name="checkbox6" [(ngModel)]="formData[5].checkbox"></td>
+        <td><input type="text" name="reviewedBy6" [(ngModel)]="formData[5].reviewedBy"></td>
+        <td><input type="text" name="approvedBy6" [(ngModel)]="formData[5].approvedBy"></td>
+        <td><input type="text" name="remarks6" [(ngModel)]="formData[5].remarks"></td>
+      </tr>
+      <tr>
+        <td><input type="date" name="date7" [(ngModel)]="formData[6].date"></td>
+        <td style="text-align: center;">7</td>
+        <td>{{ formData[6].maintenanceDescription }}</td>
+        <td><input type="checkbox" name="checkbox7" [(ngModel)]="formData[6].checkbox"></td>
+        <td><input type="text" name="reviewedBy7" [(ngModel)]="formData[6].reviewedBy"></td>
+        <td><input type="text" name="approvedBy7" [(ngModel)]="formData[6].approvedBy"></td>
+        <td><input type="text" name="remarks7" [(ngModel)]="formData[6].remarks"></td>
+      </tr>
+      <tr>    
+        <td><input type="date" name="date8" [(ngModel)]="formData[7].date"></td>
+        <td style="text-align: center;">8</td>
+        <td>{{ formData[7].maintenanceDescription }}</td>
+        <td><input type="checkbox" name="checkbox8" [(ngModel)]="formData[7].checkbox"></td>
+        <td><input type="text" name="reviewedBy8" [(ngModel)]="formData[7].reviewedBy"></td>
+        <td><input type="text" name="approvedBy8" [(ngModel)]="formData[7].approvedBy"></td>
+        <td><input type="text" name="remarks8" [(ngModel)]="formData[7].remarks"></td>
+      </tr>
+      <tr>
+        <td><input type="date" name="date9" [(ngModel)]="formData[8].date"></td>
+        <td style="text-align: center;">9</td>
+        <td>{{ formData[8].maintenanceDescription }}</td>
+        <td><input type="checkbox" name="checkbox9" [(ngModel)]="formData[8].checkbox"></td>
+        <td><input type="text" name="reviewedBy9" [(ngModel)]="formData[8].reviewedBy"></td>
+        <td><input type="text" name="approvedBy9" [(ngModel)]="formData[8].approvedBy"></td>
+        <td><input type="text" name="remarks9" [(ngModel)]="formData[8].remarks"></td>
+      </tr>
+      <tr>
+        <td><input type="date" name="date10" [(ngModel)]="formData[9].date"></td>
+        <td style="text-align: center;">10</td>
+        <td>{{ formData[9].maintenanceDescription }}</td>
+        <td><input type="checkbox" name="checkbox10" [(ngModel)]="formData[9].checkbox"></td>
+        <td><input type="text" name="reviewedBy10" [(ngModel)]="formData[9].reviewedBy"></td>
+        <td><input type="text" name="approvedBy10" [(ngModel)]="formData[9].approvedBy"></td>
+        <td><input type="text" name="remarks10" [(ngModel)]="formData[9].remarks"></td>
+      </tr>
+      <tr>
+        <td><input type="date" name="date11" [(ngModel)]="formData[10].date"></td>
+        <td style="text-align: center;">11</td>
+        <td>{{ formData[10].maintenanceDescription }}</td>
+        <td><input type="checkbox" name="checkbox11" [(ngModel)]="formData[10].checkbox"></td>
+        <td><input type="text" name="reviewedBy11" [(ngModel)]="formData[10].reviewedBy"></td>
+        <td><input type="text" name="approvedBy11" [(ngModel)]="formData[10].approvedBy"></td>
+        <td><input type="text" name="remarks11" [(ngModel)]="formData[10].remarks"></td>
+      </tr>
+      <tr>
+        <td><input type="date" name="date12" [(ngModel)]="formData[11].date"></td>
+        <td style="text-align: center;">12</td>
+        <td>{{ formData[11].maintenanceDescription }}</td>
+        <td><input type="checkbox" name="checkbox12" [(ngModel)]="formData[11].checkbox"></td>
+        <td><input type="text" name="reviewedBy12" [(ngModel)]="formData[11].reviewedBy"></td>
+        <td><input type="text" name="approvedBy12" [(ngModel)]="formData[11].approvedBy"></td>
+        <td><input type="text" name="remarks12" [(ngModel)]="formData[11].remarks"></td>
+      </tr>
+      <tr>
+        <td><input type="date" name="date13" [(ngModel)]="formData[12].date"></td>
+        <td style="text-align: center;">13</td>
+        <td>{{ formData[12].maintenanceDescription }}</td>
+        <td><input type="checkbox" name="checkbox13" [(ngModel)]="formData[12].checkbox"></td>
+        <td><input type="text" name="reviewedBy13" [(ngModel)]="formData[12].reviewedBy"></td>
+        <td><input type="text" name="approvedBy13" [(ngModel)]="formData[12].approvedBy"></td>
+        <td><input type="text" name="remarks13" [(ngModel)]="formData[12].remarks"></td>
+      </tr>
+      <tr>
+        <td><input type="date" name="date14" [(ngModel)]="formData[13].date"></td>
+        <td style="text-align: center;">14</td>
+        <td>{{ formData[13].maintenanceDescription }}</td>
+        <td><input type="checkbox" name="checkbox14" [(ngModel)]="formData[13].checkbox"></td>
+        <td><input type="text" name="reviewedBy14" [(ngModel)]="formData[13].reviewedBy"></td>
+        <td><input type="text" name="approvedBy14" [(ngModel)]="formData[13].approvedBy"></td>
+        <td><input type="text" name="remarks14" [(ngModel)]="formData[13].remarks"></td>
+      </tr>
+      <tr>
+        <td><input type="date" name="date15" [(ngModel)]="formData[14].date"></td>
+        <td style="text-align: center;">15</td>
+        <td>{{ formData[14].maintenanceDescription }}</td>
+        <td><input type="checkbox" name="checkbox15" [(ngModel)]="formData[14].checkbox"></td>
+        <td><input type="text" name="reviewedBy15" [(ngModel)]="formData[14].reviewedBy"></td>
+        <td><input type="text" name="approvedBy15" [(ngModel)]="formData[14].approvedBy"></td>
+        <td><input type="text" name="remarks15" [(ngModel)]="formData[14].remarks"></td>
+      </tr>
+      <tr>
+        <td><input type="date" name="date16" [(ngModel)]="formData[15].date"></td>
+        <td style="text-align: center;">16</td>
+        <td>{{ formData[15].maintenanceDescription }}</td>
+        <td><input type="checkbox" name="checkbox16" [(ngModel)]="formData[15].checkbox"></td>
+        <td><input type="text" name="reviewedBy16" [(ngModel)]="formData[15].reviewedBy"></td>
+        <td><input type="text" name="approvedBy16" [(ngModel)]="formData[15].approvedBy"></td>
+        <td><input type="text" name="remarks16" [(ngModel)]="formData[15].remarks"></td>
+      </tr>
+      <tr>
+        <td><input type="date" name="date17" [(ngModel)]="formData[16].date"></td>
+        <td style="text-align: center;">17</td>
+        <td>{{ formData[16].maintenanceDescription }}</td>
+        <td><input type="checkbox" name="checkbox17" [(ngModel)]="formData[16].checkbox"></td>
+        <td><input type="text" name="reviewedBy17" [(ngModel)]="formData[16].reviewedBy"></td>
+        <td><input type="text" name="approvedBy17" [(ngModel)]="formData[16].approvedBy"></td>
+        <td><input type="text" name="remarks17" [(ngModel)]="formData[16].remarks"></td>
+      </tr>  
+      <tr>
+        <td><input type="date" name="date18" [(ngModel)]="formData[17].date"></td>
+        <td style="text-align: center;">18</td>
+        <td>{{ formData[17].maintenanceDescription }}</td>
+        <td><input type="checkbox" name="checkbox18" [(ngModel)]="formData[17].checkbox"></td>
+        <td><input type="text" name="reviewedBy18" [(ngModel)]="formData[17].reviewedBy"></td>
+        <td><input type="text" name="approvedBy18" [(ngModel)]="formData[17].approvedBy"></td>
+        <td><input type="text" name="remarks18" [(ngModel)]="formData[17].remarks"></td>
+      </tr>
+      <tr>
+        <td><input type="date" name="date19" [(ngModel)]="formData[18].date"></td>
+        <td style="text-align: center;">19</td>
+        <td>{{ formData[18].maintenanceDescription }}</td>
+        <td><input type="checkbox" name="checkbox19" [(ngModel)]="formData[18].checkbox"></td>
+        <td><input type="text" name="reviewedBy19" [(ngModel)]="formData[18].reviewedBy"></td>
+        <td><input type="text" name="approvedBy19" [(ngModel)]="formData[18].approvedBy"></td>
+        <td><input type="text" name="remarks19" [(ngModel)]="formData[18].remarks"></td>
+      </tr>
+      <tr *ngFor="let row of rows; let i = index">
+        <td ><input type="date" name="date{{i}}" [(ngModel)]="row.date"></td>
+        <td style="text-align: center;">{{ 20 + i }}</td>
+        <td><span>{{ row.maintenanceDescription }}</span></td>
+        <td><input type="checkbox" name="checkbox{{i}}" [(ngModel)]="row.checkbox"></td>
+        <td><input type="text" name="reviewedBy{{i}}" [(ngModel)]="row.reviewedBy"></td>
+        <td><input type="text" name="approvedBy{{i}}" [(ngModel)]="row.approvedBy"></td>
+        <td><input type="text" name="remarks{{i}}" [(ngModel)]="row.remarks"></td>
+      </tr>
+    </tbody>
+    </table>
+    <div class="button">
+    <button style="margin-right: 20px; margin-top: 20px; border-radius: 10px; width: 150px; height: 40px;" type="submit">Submit</button>
+    </div>
+  </form>
+  </div>
+  
+  
+  
+  

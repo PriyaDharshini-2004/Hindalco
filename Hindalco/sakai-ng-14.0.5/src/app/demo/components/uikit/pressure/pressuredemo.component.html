@@ -1,0 +1,67 @@
+<div class="card">
+  <h4>P11-Pressure</h4>
+  <hr>
+  <div id="line1">
+    <button (click)="toggleChartVisibility('line1')">Pump 1 Pressure</button>
+    <button (click)="toggleChartVisibility('line2')">Pump 2 Pressure</button>
+    <button (click)="toggleChartVisibility('line3')">Pump 3 Pressure</button>
+  </div>
+  <div id="line2">
+    <button (click)="toggleChartVisibility('line4')">Container Sealing Cylinder-Bore End</button>
+    <button (click)="toggleChartVisibility('line5')">Shear Cylinder-Rod End</button>
+    <button (click)="toggleChartVisibility('line6')">Die Slide Cylinder-Rod End</button>
+  </div>
+</div>
+    <div class="card" *ngIf="showChart === 'line1'">
+        <p-chart type="line" [data]="data" [options]="options"></p-chart>
+    </div>
+    <div class="card" *ngIf="showChart === 'line2'">
+        <p-chart type="line" [data]="data" [options]="options"></p-chart>
+    </div>
+    <div class="card" *ngIf="showChart === 'line3'">
+        <p-chart type="line" [data]="data" [options]="options"></p-chart>
+    </div>
+    <div class="card" *ngIf="showChart === 'line4'">
+        <p-chart type="line" [data]="data" [options]="options"></p-chart>
+    </div>
+    <div class="card" *ngIf="showChart === 'line5'">
+        <p-chart type="line" [data]="data" [options]="options"></p-chart>
+    </div>
+    <div class="card" *ngIf="showChart === 'line6'">
+        <p-chart type="line" [data]="data" [options]="options"></p-chart>
+    </div>
+<style>
+#line1{
+text-align: center;
+margin-bottom: 25px;
+}
+#line1 button{
+  background-color: rgb(239, 240, 221)
+
+}
+#line2 button{
+  background-color: rgb(243, 230, 219)
+}
+#line2{
+text-align: center;
+
+}
+button{
+border-radius: 5px;
+width: 150px;
+height: 70px;
+margin-left: 20px;
+border-color: azure;
+border: 1px solid rgb(211, 211, 211);
+color: rgb(0, 0, 0);
+
+}
+#line1 button:hover{
+  background-color: rgb(217, 231, 234);
+}
+#line2 button:hover{
+  background-color: rgb(217, 231, 234);
+}
+
+
+</style>

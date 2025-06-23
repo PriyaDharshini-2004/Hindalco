@@ -1,0 +1,215 @@
+<style>
+    table, th, td {
+  border:1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+
+}
+ button{
+            border-radius: 5px;
+            width: 210px;
+            background-color: rgb(255, 255, 255);
+            border: 1px solid azure;
+            color: rgb(0, 0, 0);
+            text-align: left;
+            cursor: pointer;
+            height: 35px;
+ }
+ .but:hover {
+  background-color: #deeaf0;
+  color: rgb(0, 0, 0);
+}
+
+
+
+    .card {
+        margin-bottom: 15px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+</style>
+
+
+<div class="card">
+    <h4>P29-Auto Cycle</h4>
+    <hr>
+<div class="grid">
+
+    <div class="col-12 xl:col-3">
+        <table>  
+            <tr>
+                <td style="width: 30px;">1a</td>
+                <td>
+                    <button class="but"(click)="toggleImage(1)">
+                       Decompression
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">1b</td>
+                <td>
+                    <button  class="but"(click)="toggleImage(2)">
+                        Decompression Stage 2
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">2a</td>
+                <td>
+                    <button class="but" (click)="toggleImage(3)">
+                       Main Ram Hold
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">2b</td>
+                <td>
+                    <button class="but"(click)="toggleImage(4)">
+                       Container Strip<br>
+                       Main Ram Hold
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">3</td>
+                <td>
+                    <button  class="but"(click)="toggleImage(5)">
+                        Container Open Regen<br>
+                        Main Ram Return
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">4</td>
+                <td>
+                    <button class="but"(click)="toggleImage(6)">
+                        Shear Down<br>
+                        Main Ram Return                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">5</td>
+                <td>
+                    <button class="but"(click)="toggleImage(7)">
+                        Shear Up<br>
+                        Main Ram Return 
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">6</td>
+                <td>
+                    <button class="but"(click)="toggleImage(8)">
+                        Container Close<br>
+                        Main Ram Return 
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">7</td>
+                <td>
+                    <button class="but"(click)="toggleImage(9)">
+                        Container Seal<br>
+                        Main Ram Fast Return
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">8</td>
+                <td>
+                    <button class="but"(click)="toggleImage(10)">
+                        Container Seal<br>
+                        Main Ram Slow Return
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">9</td>
+                <td>
+                    <button class="but"(click)="toggleImage(11)">
+                        Loader Up
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">10</td>
+                <td>
+                    <button class="but"(click)="toggleImage(12)">
+                        Loader Up Hold<br>
+                        Main Ram Regen
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">11</td>
+                <td>
+                    <button class="but"(click)="toggleImage(13)">
+                        Loader Down<br>
+                        Main Ram Regen
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">13</td>
+                <td>
+                    <button class="but"(click)="toggleImage(14)">
+                        Loader Down<br>
+                        Main Slow fwd (SC)
+                    </button>
+                </td>
+            </tr>
+        </table>
+   
+        
+    </div>
+
+    <div class="col-12 xl:col-9" >
+        <div class="card" *ngIf="showImage === 1">
+            <img src="assets/layout/images/P29 Sequence/Auto Cycle P29/Decompression 1/DECOMPRESSION 1 P29.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 2">
+            <img src="assets/layout/images/P29 Sequence/Auto Cycle P29/Decompression stage2 1b/DECOMPRESSION STAGE 2 .gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 3">
+            <img src="assets/layout/images/P29 Sequence/Auto Cycle P29/2a Main Ram Hold/DECOMPRESSION STAGE 2 .gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 4">
+            <img src="assets/layout/images/P29 Sequence/Auto Cycle P29/2b Container Strip and main ram hold/Container Strip and main ram hold 2b.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 5">
+            <img src="assets/layout/images/P29 Sequence/Auto Cycle P29/Container Open Regan 3/3 Container Open Regan and Main Ram Return.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 6">
+            <img src="assets/layout/images/P29 Sequence/Auto Cycle P29/Shear down 4/_4 Shear Down and Main Ram Return .gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 7">
+            <img src="assets/layout/images/P29 Sequence/Auto Cycle P29/Shear Up 5/5 Shear Up Main Ram Rerturn.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 8">
+            <img src="assets/layout/images/P29 Sequence/Auto Cycle P29/Container Close 6/6 Container Close Main Ram Return.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 9">
+            <img src="assets/layout/images/P29 Sequence/Auto Cycle P29/COntainer Seal 7/7 Container Seal Main Ram Fast Return .gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 10">
+            <img src="assets/layout/images/P29 Sequence/Auto Cycle P29/Container Seal 8/8 Container Seal Main Ram Slow Return .gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 11">
+            <img src="assets/layout/images/P29 Sequence/Auto Cycle P29/Loader Up 9/_9 Loader Up.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 12">
+            <img src="assets/layout/images/P29 Sequence/Auto Cycle P29/Loader Up Hold 10/10 Loader Up Hold and Main Ram Regan.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 13">
+            <img src="assets/layout/images/P29 Sequence/Auto Cycle P29/11 LOADER DOWN MAIN RAM REGAN/11 Loader DOWN  and Main Ram Regan.gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+        <div class="card" *ngIf="showImage === 14">
+            <img src="assets/layout/images/P29 Sequence/Auto Cycle P29/12 Loader down main slow fed (SC)/12 loader down main slow fwd (sc).gif" height="100%" width="100%"class="mb-3" alt="Dyna4Cast">
+        </div>
+    </div>
+    
+   
+
+</div>
+</div>
